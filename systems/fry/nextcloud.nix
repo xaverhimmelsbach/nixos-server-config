@@ -21,10 +21,10 @@
     configureRedis = true;
   };
 
-  services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
-    forceSSL = true;
-    sslCertificate = "/var/lib/acme/himmelsbach.dev/cert.pem";
-    sslCertificateKey = "/var/lib/acme/himmelsbach.dev/key.pem";
+  users.groups."acme-himmelsbach.dev" = {
+    members = [
+      "acme"
+    ];
   };
 
   security.acme = {
@@ -33,7 +33,13 @@
     certs."himmelsbach.dev" = {
       dnsProvider = "hetzner";
       environmentFile = config.age.secrets.hetzner-api-key.path;
-      group = "nginx";
+      group = "acme-himmelsbach.dev";
     };
+  };
+
+  services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
+    forceSSL = true;
+    sslCertificate = "/var/lib/acme/himmelsbach.dev/cert.pem";
+    sslCertificateKey = "/var/lib/acme/himmelsbach.dev/key.pem";
   };
 }
