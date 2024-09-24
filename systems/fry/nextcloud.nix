@@ -10,6 +10,13 @@
     file = ../../secrets/hetzner-api-key.age; 
   };
 
+  age.secrets.coturn-static-auth-secret= {
+    file = ../../secrets/coturn-static-auth-secret.age;
+    mode = "770";
+    owner = "turnserver";
+    group = "turnserver";
+  };
+
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud29;
@@ -24,6 +31,7 @@
   users.groups."acme-himmelsbach.dev" = {
     members = [
       "acme"
+      "turnserver"
     ];
   };
 
@@ -41,5 +49,23 @@
     forceSSL = true;
     sslCertificate = "/var/lib/acme/himmelsbach.dev/cert.pem";
     sslCertificateKey = "/var/lib/acme/himmelsbach.dev/key.pem";
+  };
+
+  services.coturn = {
+    enable = true;
+    use-auth-secret = true;
+    static-auth-secret-file = config.age.secrets.coturn-static-auth-secret.path;
+    realm = "himmelsbach.dev";
+    cert = "/var/lib/acme/himmelsbach.dev/cert.pem";
+    pkey = "/var/lib/acme/himmelsbach.dev/key.pem";
+    no-cli = true;
+    # https://nextcloud-talk.readthedocs.io/en/latest/coturn/
+    extraConfig = ''
+      fingerprint
+      total-quota=0
+      bps-capacity=0
+      stale-nonce
+      no-multicast-peers
+    '';
   };
 }
