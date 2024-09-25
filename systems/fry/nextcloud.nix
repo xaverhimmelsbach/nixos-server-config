@@ -17,6 +17,17 @@
     group = "turnserver";
   };
 
+  networking.firewall = {
+    # allowedTCPPorts = [
+      # 443 # Nextcloud
+      # 5349 # TURN
+    # ];
+    allowedUDPPorts = [
+      # 5349 # TURN
+      51820 # Wireguard port
+    ];
+  };
+
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud29;
