@@ -15,6 +15,7 @@
     (import ./wireguard.nix)
     (import ./nextcloud.nix)
     (import ./adguard.nix)
+    (import ./calibre.nix)
     agenix.nixosModules.default
   ];
 }
