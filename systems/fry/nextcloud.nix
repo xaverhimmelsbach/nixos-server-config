@@ -19,8 +19,8 @@
 
   networking.firewall = {
     # allowedTCPPorts = [
-      # 443 # Nextcloud
-      # 5349 # TURN
+    #   443 # Nextcloud
+    #   5349 # TURN
     # ];
     allowedUDPPorts = [
       # 5349 # TURN
