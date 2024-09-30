@@ -6,4 +6,5 @@ in
   "hetzner-api-key.age".publicKeys = [ fry ];
   "wireguard-private-key.age".publicKeys = [ fry ];
   "coturn-static-auth-secret.age".publicKeys = [ fry ];
+  "searx-environment.age".publicKeys = [ fry ];
 }
