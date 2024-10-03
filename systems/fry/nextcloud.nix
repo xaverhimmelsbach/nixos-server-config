@@ -1,6 +1,13 @@
 { pkgs, config, ... }: {
   age.secrets.nextcloud-root-pw = {
-    file = ../../secrets/nextcloud-root-pw.age; 
+    file = ../../secrets/nextcloud-root-pw.age;
+    mode = "770";
+    owner = "nextcloud";
+    group = "nextcloud";
+  };
+
+  age.secrets.hetzner-s3-secret = {
+    file = ../../secrets/hetzner-s3-secret.age;
     mode = "770";
     owner = "nextcloud";
     group = "nextcloud";
@@ -24,6 +31,14 @@
     https = true;
     config = {
       adminpassFile = config.age.secrets.nextcloud-root-pw.path;
+      objectstore.s3 = {
+        enable = true;
+        bucket = "nextcloud-himmelsbach-dev";
+        autocreate = false;
+        key = "RJRY61EEF5I1VBA8W0JM";
+        secretFile = config.age.secrets.hetzner-s3-secret.path;
+        hostname = "fsn1.your-objectstorage.com";
+      };
     };
     configureRedis = true;
   };
