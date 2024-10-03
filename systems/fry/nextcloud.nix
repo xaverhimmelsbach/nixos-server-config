@@ -26,7 +26,7 @@
 
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud29;
+    package = pkgs.nextcloud30;
     hostName = "cloud.himmelsbach.dev";
     https = true;
     config = {
