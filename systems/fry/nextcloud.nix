@@ -26,14 +26,20 @@
 
   services.nextcloud = {
     enable = true;
+    home = "/var/lib/nextcloud";
     package = pkgs.nextcloud30;
     hostName = "cloud.himmelsbach.dev";
     https = true;
+    database.createLocally = true;
     config = {
+      dbtype = "pgsql";
+      dbname = "nextcloud";
+      dbuser = "nextcloud";
+      adminuser = "admin";
       adminpassFile = config.age.secrets.nextcloud-root-pw.path;
       objectstore.s3 = {
         enable = true;
-        bucket = "nextcloud-himmelsbach-dev";
+        bucket = "nextcloud-himmelsbach-dev-2";
         autocreate = false;
         key = "RJRY61EEF5I1VBA8W0JM";
         secretFile = config.age.secrets.hetzner-s3-secret.path;
@@ -41,6 +47,18 @@
       };
     };
     configureRedis = true;
+    caching = {
+      redis = true;
+      memcached = true;
+    };
+    settings = {
+      type = {
+        options = {
+          log_type = "syslog";
+          default_phone_region = "DE";
+        };
+      };
+    };
   };
 
   users.groups."acme-cloud.himmelsbach.dev" = {
