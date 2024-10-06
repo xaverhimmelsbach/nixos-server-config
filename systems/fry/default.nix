@@ -19,6 +19,7 @@
     (import ./turn.nix)
     (import ./adguard.nix)
     (import ./calibre.nix)
+    (import ./kavita.nix)
     (import ./searx.nix)
     agenix.nixosModules.default
   ];

@@ -8,4 +8,5 @@ in
   "coturn-static-auth-secret.age".publicKeys = [ fry ];
   "searx-environment.age".publicKeys = [ fry ];
   "hetzner-s3-secret.age".publicKeys = [ fry ];
+  "kavita-token-key.age".publicKeys = [ fry ];
 }
