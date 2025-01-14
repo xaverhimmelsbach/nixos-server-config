@@ -20,6 +20,7 @@
     (import ./adguard.nix)
     (import ./kavita.nix)
     (import ./searx.nix)
+    (import ./firefly-iii.nix)
     agenix.nixosModules.default
   ];
 }
