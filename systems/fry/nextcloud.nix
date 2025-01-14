@@ -24,27 +24,34 @@
     ];
   };
 
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "nextcloud" ];
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser  auth-method
+      local all       all     trust
+    '';
+    ensureUsers = [
+      {
+        name = "nextcloud";
+        ensureDBOwnership = true;
+      }
+    ];
+  };
+
   services.nextcloud = {
     enable = true;
     home = "/var/lib/nextcloud";
     package = pkgs.nextcloud30;
     hostName = "cloud.himmelsbach.dev";
     https = true;
-    database.createLocally = true;
     config = {
       dbtype = "pgsql";
       dbname = "nextcloud";
       dbuser = "nextcloud";
+      dbhost = "/var/run/postgresql";
       adminuser = "admin";
       adminpassFile = config.age.secrets.nextcloud-root-pw.path;
-      objectstore.s3 = {
-        enable = true;
-        bucket = "nextcloud-himmelsbach-dev-2";
-        autocreate = false;
-        key = "RJRY61EEF5I1VBA8W0JM";
-        secretFile = config.age.secrets.hetzner-s3-secret.path;
-        hostname = "fsn1.your-objectstorage.com";
-      };
     };
     configureRedis = true;
     caching = {
