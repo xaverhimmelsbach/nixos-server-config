@@ -8,6 +8,7 @@ NixOS config to provision a personal server.
 - Kavita (`read.himmelsbach.dev`)
 - Searx (`search.himmelsbach.dev`)
 - Calibre
+- Firefly 3 (`firefly.himmelsbach.dev`)
 
 ## Setup
 
@@ -15,7 +16,7 @@ NixOS config to provision a personal server.
 - If a new system is being provisioned, append its SSH key in `secrets/secrets.nix` and add it to all managed secrets
   - Regenerate secrets:
 ```bash
-nix run github:ryantm/agenix -- -e coturn-static-auth-secret.age hetzner-api-key.age hetzner-s3-secret.age kavita-token-key.age nextcloud-root-pw.age searx-environment.age wireguard-private-key.age
+nix run github:ryantm/agenix -- -e coturn-static-auth-secret.age hetzner-api-key.age hetzner-s3-secret.age kavita-token-key.age nextcloud-root-pw.age searx-environment.age wireguard-private-key.age firefly-iii-app-key.age
 ```
 
 ### Migrating data
