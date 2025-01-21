@@ -1,11 +1,8 @@
-{ pkgs, lib, agenix, stateVersion }:
-{
+{ pkgs, lib, agenix, stateVersion }: {
   inherit pkgs;
   modules = [
     (import ./hardware-configuration.nix)
-    (import ./configuration.nix {
-      inherit stateVersion;
-    })
+    (import ./configuration.nix { inherit stateVersion; })
     (import ./networking.nix)
     (import ./security.nix)
     (import ./wireguard.nix)

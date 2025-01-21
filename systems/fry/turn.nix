@@ -1,6 +1,5 @@
-{ config, ... }:
-{
-  age.secrets.coturn-static-auth-secret= {
+{ config, ... }: {
+  age.secrets.coturn-static-auth-secret = {
     file = ../../secrets/coturn-static-auth-secret.age;
     mode = "770";
     owner = "turnserver";
@@ -8,11 +7,7 @@
   };
 
   users.groups."acme-turn.himmelsbach.dev" = {
-    members = [
-      "acme"
-      "nginx"
-      "turnserver"
-    ];
+    members = [ "acme" "nginx" "turnserver" ];
   };
 
   security.acme = {
@@ -28,9 +23,7 @@
       forceSSL = true;
       sslCertificate = "/var/lib/acme/turn.himmelsbach.dev/cert.pem";
       sslCertificateKey = "/var/lib/acme/turn.himmelsbach.dev/key.pem";
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:5349";
-      };
+      locations."/" = { proxyPass = "http://127.0.0.1:5349"; };
     };
   };
 
@@ -51,5 +44,5 @@
       no-multicast-peers
     '';
   };
-  
+
 }

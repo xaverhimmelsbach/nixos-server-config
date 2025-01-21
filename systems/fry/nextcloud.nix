@@ -26,12 +26,10 @@
 
   services.postgresql = {
     ensureDatabases = [ "nextcloud" ];
-    ensureUsers = [
-      {
-        name = "nextcloud";
-        ensureDBOwnership = true;
-      }
-    ];
+    ensureUsers = [{
+      name = "nextcloud";
+      ensureDBOwnership = true;
+    }];
   };
 
   services.nextcloud = {
@@ -63,12 +61,7 @@
     };
   };
 
-  users.groups."acme-cloud.himmelsbach.dev" = {
-    members = [
-      "acme"
-      "nginx"
-    ];
-  };
+  users.groups."acme-cloud.himmelsbach.dev" = { members = [ "acme" "nginx" ]; };
 
   security.acme = {
     certs."cloud.himmelsbach.dev" = {

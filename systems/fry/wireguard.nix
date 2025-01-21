@@ -1,11 +1,8 @@
-{ pkgs, config, ... }:
-{
-  environment.systemPackages = with pkgs; [
-    wireguard-tools
-  ];
+{ pkgs, config, ... }: {
+  environment.systemPackages = with pkgs; [ wireguard-tools ];
 
-  age.secrets.wireguard-private-key= {
-    file = ../../secrets/wireguard-private-key.age; 
+  age.secrets.wireguard-private-key = {
+    file = ../../secrets/wireguard-private-key.age;
   };
 
   networking.nat.enable = true;
