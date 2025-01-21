@@ -1,5 +1,5 @@
-{ lib, pkgs, stateVersion, ... }:
-{ config, ...}:
+{ stateVersion, ... }:
+{ lib, pkgs, config, ...}:
 
 {
   nix.extraOptions = ''

@@ -4,13 +4,9 @@
   modules = [
     (import ./hardware-configuration.nix)
     (import ./configuration.nix {
-      inherit pkgs;
-      inherit lib;
       inherit stateVersion;
     })
-    (import ./networking.nix {
-      inherit lib;
-    })
+    (import ./networking.nix)
     (import ./security.nix)
     (import ./wireguard.nix)
     (import ./nginx.nix)
