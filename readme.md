@@ -9,6 +9,7 @@ NixOS config to provision a personal server.
 - Searx (`search.himmelsbach.dev`)
 - Calibre
 - Firefly 3 (`firefly.himmelsbach.dev`)
+- FreshRSS (`freshrss.himmelsbach.dev`)
 
 ## Setup
 
@@ -28,7 +29,6 @@ nix run github:ryantm/agenix -- -e coturn-static-auth-secret.age hetzner-api-key
 - Jellyfin
 - Fossil VCS
 - Paperless
-- FreshRSS
 - Firefox Sync Server
 - Personal Website
 - Backups

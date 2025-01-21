@@ -10,4 +10,5 @@ in
   "hetzner-s3-secret.age".publicKeys = [ fry ];
   "kavita-token-key.age".publicKeys = [ fry ];
   "firefly-iii-app-key.age".publicKeys = [ fry ];
+  "freshrss-admin-password.age".publicKeys = [ fry ];
 }

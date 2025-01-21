@@ -21,6 +21,7 @@
     (import ./kavita.nix)
     (import ./searx.nix)
     (import ./firefly-iii.nix)
+    (import ./freshrss.nix)
     agenix.nixosModules.default
   ];
 }
