@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ config, ... }: {
   age.secrets.firefly-iii-app-key = {
     file = ../../secrets/firefly-iii-app-key.age;
     mode = "770";
@@ -27,12 +27,7 @@
   };
 
   services.postgresql = {
-    enable = true;
     ensureDatabases = [ "firefly-iii" ];
-    authentication = pkgs.lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
-    '';
     ensureUsers = [{
       name = "firefly-iii";
       ensureDBOwnership = true;
