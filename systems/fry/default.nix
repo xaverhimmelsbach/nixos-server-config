@@ -15,6 +15,7 @@
     (import ./searx.nix)
     (import ./firefly-iii.nix)
     (import ./freshrss.nix)
+    (import ./paperless.nix)
     (import ./infrastructure/postgresql.nix)
     agenix.nixosModules.default
   ];

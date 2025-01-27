@@ -11,4 +11,6 @@ in {
   "kavita-token-key.age".publicKeys = [ fry ];
   "firefly-iii-app-key.age".publicKeys = [ fry ];
   "freshrss-admin-password.age".publicKeys = [ fry ];
+  "paperless-admin-password.age".publicKeys = [ fry ];
+  "paperless-secret-key-env.age".publicKeys = [ fry ];
 }
