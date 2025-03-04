@@ -12,6 +12,7 @@
     (import ./turn.nix)
     (import ./adguard.nix)
     (import ./kavita.nix)
+    (import ./navidrome.nix)
     (import ./searx.nix)
     (import ./firefly-iii.nix)
     (import ./freshrss.nix)
