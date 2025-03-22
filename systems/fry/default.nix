@@ -8,8 +8,6 @@
     (import ./wireguard.nix)
     (import ./nginx.nix)
     (import ./acme.nix)
-    (import ./nextcloud.nix)
-    (import ./turn.nix)
     (import ./adguard.nix)
     (import ./kavita.nix)
     (import ./navidrome.nix)

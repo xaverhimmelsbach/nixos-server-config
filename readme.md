@@ -3,7 +3,6 @@ NixOS config to provision a personal server.
 
 ## Services
 - Wireguard Proxy
-- Nextcloud (`cloud.himmelsbach.dev`)
 - Adguard
 - Kavita (`read.himmelsbach.dev`)
 - Navidrome (`music.himmelsbach.dev`)
@@ -19,12 +18,12 @@ NixOS config to provision a personal server.
 - If a new system is being provisioned, append its SSH key in `secrets/secrets.nix` and add it to all managed secrets
   - Regenerate secrets:
 ```bash
-nix run github:ryantm/agenix -- -e coturn-static-auth-secret.age hetzner-api-key.age hetzner-s3-secret.age kavita-token-key.age nextcloud-root-pw.age searx-environment.age wireguard-private-key.age firefly-iii-app-key.age
+nix run github:ryantm/agenix -- -e coturn-static-auth-secret.age hetzner-api-key.age hetzner-s3-secret.age kavita-token-key.age searx-environment.age wireguard-private-key.age firefly-iii-app-key.age
 ```
 
 ### Migrating data
 - Nearly all application data is stored in `/var/lib` and can be synced to the new system
-- For nextcloud, a manual DB backup has to be restored
+- For some services, a manual DB backup has to be restored. All relevant DBs are defined in the config
 
 ## Plans
 - Dashboard
