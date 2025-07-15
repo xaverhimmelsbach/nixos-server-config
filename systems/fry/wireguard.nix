@@ -35,8 +35,8 @@
           publicKey = "UJ57HKzSWYiu8SfHCpngN/OqLNgu0G2MwniU5+eJyTQ=";
           allowedIPs = [ "10.100.0.2/32" ];
         }
-        { # Mac
-          publicKey = "g+m/NOPNclUUAVxcMDIcS8LzG/eNzFlmMjMSDFUK/io=";
+        { # Laptop
+          publicKey = "V+XyP+4D0BewGmIaaffxBS7ESYhSNLgSUhBTo2OuWjU=";
           allowedIPs = [ "10.100.0.3/32" ];
         }
         { # Desktop
