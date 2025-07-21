@@ -1,11 +1,18 @@
 { ... }: {
-  networking.nameservers = [ "127.0.0.1" ];
+  networking.nameservers = [ "::1" ];
+
+  # TODO: Setup subdomain
 
   services.adguardhome = {
     enable = true;
     settings = {
-      http = { address = "0.0.0.0:3000"; };
-      dns = { upstream_dns = [ "9.9.9.9" ]; };
+      http = {
+        address = "[fc00::1]:3000";
+      };
+      dns = {
+        bind_hosts = [ "::1" "fc00::1" ];
+        upstream_dns = [ "2620:fe::fe" ]; # Quad9
+      };
       filtering = {
         protection_enabled = true;
         filtering_enabled = true;
