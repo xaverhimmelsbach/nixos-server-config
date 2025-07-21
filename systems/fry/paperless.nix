@@ -52,7 +52,7 @@
       # PAPERLESS_TIKA_ENDPOINT=<url>
       # PAPERLESS_TIKA_GOTENBERG_ENDPOINT=<url>
       PAPERLESS_OCR_LANGUAGE="deu";
-      PAPERLESS_URL="http://127.0.0.1";
+      PAPERLESS_URL="https://paperless.himmelsbach.dev";
     };
     environmentFile = config.age.secrets.paperless-secret-key-env.path;
   };
