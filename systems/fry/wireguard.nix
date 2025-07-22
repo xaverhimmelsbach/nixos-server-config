@@ -32,7 +32,7 @@
 
       peers = [
         { # Oneplus
-          publicKey = "UJ57HKzSWYiu8SfHCpngN/OqLNgu0G2MwniU5+eJyTQ=";
+          publicKey = "XM/Sm1WazeG8W/EbkNXCg5SRsVomkxpbRNOt/QvZghc=";
           allowedIPs = [ "fc00::2" ];
         }
         { # Laptop
