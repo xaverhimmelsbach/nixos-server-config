@@ -12,6 +12,7 @@ NixOS config to provision a personal server.
 - FreshRSS (`freshrss.himmelsbach.dev`)
 - Paperless (`paperless.himmelsbach.dev`)
 - Jellyfin (`watch.himmelsbach.dev`)
+- SABnzbd (`sabnzbd.himmelsbach.dev`)
 
 ## Setup
 

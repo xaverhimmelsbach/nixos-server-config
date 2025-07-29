@@ -16,6 +16,7 @@
     (import ./freshrss.nix)
     (import ./paperless.nix)
     (import ./jellyfin.nix)
+    (import ./sabnzbd.nix)
     (import ./infrastructure/postgresql.nix)
     agenix.nixosModules.default
   ];
