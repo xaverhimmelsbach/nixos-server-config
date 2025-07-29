@@ -11,6 +11,7 @@ NixOS config to provision a personal server.
 - Firefly 3 (`firefly.himmelsbach.dev`)
 - FreshRSS (`freshrss.himmelsbach.dev`)
 - Paperless (`paperless.himmelsbach.dev`)
+- Jellyfin (`watch.himmelsbach.dev`)
 
 ## Setup
 
@@ -27,7 +28,6 @@ nix run github:ryantm/agenix -- -e coturn-static-auth-secret.age hetzner-api-key
 
 ## Plans
 - Dashboard
-- Jellyfin
 - Fossil VCS
 - Firefox Sync Server
 - Personal Website

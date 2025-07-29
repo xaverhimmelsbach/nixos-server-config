@@ -15,6 +15,7 @@
     (import ./firefly-iii.nix)
     (import ./freshrss.nix)
     (import ./paperless.nix)
+    (import ./jellyfin.nix)
     (import ./infrastructure/postgresql.nix)
     agenix.nixosModules.default
   ];
