@@ -17,6 +17,7 @@
     (import ./paperless.nix)
     (import ./jellyfin.nix)
     (import ./sabnzbd.nix)
+    (import ./audiobookshelf.nix)
     (import ./infrastructure/postgresql.nix)
     agenix.nixosModules.default
   ];

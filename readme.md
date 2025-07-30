@@ -13,6 +13,7 @@ NixOS config to provision a personal server.
 - Paperless (`paperless.himmelsbach.dev`)
 - Jellyfin (`watch.himmelsbach.dev`)
 - SABnzbd (`sabnzbd.himmelsbach.dev`)
+- Audiobookshelf (`listen.himmelsbach.dev`)
 
 ## Setup
 
