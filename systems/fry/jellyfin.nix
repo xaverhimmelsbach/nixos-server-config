@@ -20,7 +20,7 @@
     };
   };
 
-  services.jellyfin= {
+  services.jellyfin = {
     enable = true;
   };
 }
