@@ -1,8 +1,13 @@
 { ... }:
-let library = "/var/lib/calibre-server";
-in {
+let
+  library = "/var/lib/calibre-server";
+in
+{
   users.groups."calibre-all" = {
-    members = [ "calibre-server" "calibre-web" ];
+    members = [
+      "calibre-server"
+      "calibre-web"
+    ];
   };
 
   services.calibre-server = {
@@ -18,7 +23,9 @@ in {
   services.calibre-web = {
     enable = true;
     group = "calibre-all";
-    listen = { ip = "0.0.0.0"; };
+    listen = {
+      ip = "0.0.0.0";
+    };
     options = {
       calibreLibrary = library;
       enableBookConversion = true;

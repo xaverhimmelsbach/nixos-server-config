@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   age.secrets.paperless-admin-password = {
     file = ../../secrets/paperless-admin-password.age;
     mode = "770";
@@ -6,7 +7,7 @@
     group = "paperless";
   };
 
-  age.secrets.paperless-secret-key-env= {
+  age.secrets.paperless-secret-key-env = {
     file = ../../secrets/paperless-secret-key-env.age;
     mode = "770";
     owner = "paperless";
@@ -14,7 +15,10 @@
   };
 
   users.groups."acme-paperless.himmelsbach.dev" = {
-    members = [ "acme" "nginx" ];
+    members = [
+      "acme"
+      "nginx"
+    ];
   };
 
   security.acme = {
@@ -30,16 +34,20 @@
       forceSSL = true;
       sslCertificate = "/var/lib/acme/paperless.himmelsbach.dev/cert.pem";
       sslCertificateKey = "/var/lib/acme/paperless.himmelsbach.dev/key.pem";
-      locations."/" = { proxyPass = "http://127.0.0.1:28981"; };
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:28981";
+      };
     };
   };
 
   services.postgresql = {
     ensureDatabases = [ "paperless" ];
-    ensureUsers = [{
-      name = "paperless";
-      ensureDBOwnership = true;
-    }];
+    ensureUsers = [
+      {
+        name = "paperless";
+        ensureDBOwnership = true;
+      }
+    ];
   };
 
   services.paperless = {
@@ -51,8 +59,8 @@
       # PAPERLESS_TIKA_ENABLED=<bool>
       # PAPERLESS_TIKA_ENDPOINT=<url>
       # PAPERLESS_TIKA_GOTENBERG_ENDPOINT=<url>
-      PAPERLESS_OCR_LANGUAGE="deu";
-      PAPERLESS_URL="https://paperless.himmelsbach.dev";
+      PAPERLESS_OCR_LANGUAGE = "deu";
+      PAPERLESS_URL = "https://paperless.himmelsbach.dev";
     };
     environmentFile = config.age.secrets.paperless-secret-key-env.path;
   };

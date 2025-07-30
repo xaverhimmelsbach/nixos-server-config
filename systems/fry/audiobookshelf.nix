@@ -1,6 +1,10 @@
-{ config, ... }: {
+{ config, ... }:
+{
   users.groups."acme-listen.himmelsbach.dev" = {
-    members = [ "acme" "nginx" ];
+    members = [
+      "acme"
+      "nginx"
+    ];
   };
 
   security.acme = {

@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   age.secrets.firefly-iii-app-key = {
     file = ../../secrets/firefly-iii-app-key.age;
     mode = "770";
@@ -7,7 +8,10 @@
   };
 
   users.groups."acme-firefly.himmelsbach.dev" = {
-    members = [ "acme" "nginx" ];
+    members = [
+      "acme"
+      "nginx"
+    ];
   };
 
   security.acme = {
@@ -28,10 +32,12 @@
 
   services.postgresql = {
     ensureDatabases = [ "firefly-iii" ];
-    ensureUsers = [{
-      name = "firefly-iii";
-      ensureDBOwnership = true;
-    }];
+    ensureUsers = [
+      {
+        name = "firefly-iii";
+        ensureDBOwnership = true;
+      }
+    ];
   };
 
   services.firefly-iii = {

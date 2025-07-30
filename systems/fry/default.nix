@@ -1,4 +1,10 @@
-{ pkgs, lib, agenix, stateVersion }: {
+{
+  pkgs,
+  lib,
+  agenix,
+  stateVersion,
+}:
+{
   inherit pkgs;
   modules = [
     (import ./hardware-configuration.nix)

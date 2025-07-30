@@ -1,4 +1,5 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
   environment.systemPackages = with pkgs; [ wireguard-tools ];
 
   age.secrets.wireguard-private-key = {
@@ -31,15 +32,18 @@
       privateKeyFile = config.age.secrets.wireguard-private-key.path;
 
       peers = [
-        { # Oneplus
+        {
+          # Oneplus
           publicKey = "XM/Sm1WazeG8W/EbkNXCg5SRsVomkxpbRNOt/QvZghc=";
           allowedIPs = [ "fc00::2" ];
         }
-        { # Laptop
+        {
+          # Laptop
           publicKey = "V+XyP+4D0BewGmIaaffxBS7ESYhSNLgSUhBTo2OuWjU=";
           allowedIPs = [ "fc00::3" ];
         }
-        { # Desktop
+        {
+          # Desktop
           publicKey = "MYWcyh02sjhaxrTj9N6NlT+Kvfw2Om/8yJXVn+x1Tk4=";
           allowedIPs = [ "fc00::4" ];
         }

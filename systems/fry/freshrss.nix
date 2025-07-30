@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   age.secrets.freshrss-admin-password = {
     file = ../../secrets/freshrss-admin-password.age;
     mode = "770";
@@ -7,7 +8,10 @@
   };
 
   users.groups."acme-freshrss.himmelsbach.dev" = {
-    members = [ "acme" "nginx" ];
+    members = [
+      "acme"
+      "nginx"
+    ];
   };
 
   security.acme = {
@@ -28,10 +32,12 @@
 
   services.postgresql = {
     ensureDatabases = [ "freshrss" ];
-    ensureUsers = [{
-      name = "freshrss";
-      ensureDBOwnership = true;
-    }];
+    ensureUsers = [
+      {
+        name = "freshrss";
+        ensureDBOwnership = true;
+      }
+    ];
   };
 
   services.freshrss = {

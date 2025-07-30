@@ -1,12 +1,23 @@
 { stateVersion, ... }:
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 
 {
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
 
-  environment.systemPackages = with pkgs; [ vim curl git helix zellij ];
+  environment.systemPackages = with pkgs; [
+    vim
+    curl
+    git
+    helix
+    zellij
+  ];
 
   environment.variables.EDITOR = "hx";
 
@@ -29,4 +40,3 @@
 
   system.stateVersion = stateVersion;
 }
-

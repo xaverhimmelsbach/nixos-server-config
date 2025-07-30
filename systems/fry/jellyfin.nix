@@ -1,6 +1,10 @@
-{ config, ... }: {
+{ config, ... }:
+{
   users.groups."acme-watch.himmelsbach.dev" = {
-    members = [ "acme" "nginx" ];
+    members = [
+      "acme"
+      "nginx"
+    ];
   };
 
   security.acme = {
@@ -16,7 +20,9 @@
       forceSSL = true;
       sslCertificate = "/var/lib/acme/watch.himmelsbach.dev/cert.pem";
       sslCertificateKey = "/var/lib/acme/watch.himmelsbach.dev/key.pem";
-      locations."/" = { proxyPass = "http://127.0.0.1:8096"; };
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8096";
+      };
     };
   };
 

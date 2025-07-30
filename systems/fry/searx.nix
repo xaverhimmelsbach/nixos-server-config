@@ -1,10 +1,14 @@
-{ config, ... }: {
+{ config, ... }:
+{
   age.secrets.searx-environment = {
     file = ../../secrets/searx-environment.age;
   };
 
   users.groups."acme-search.himmelsbach.dev" = {
-    members = [ "acme" "nginx" ];
+    members = [
+      "acme"
+      "nginx"
+    ];
   };
 
   security.acme = {
