@@ -16,7 +16,10 @@
       forceSSL = true;
       sslCertificate = "/var/lib/acme/listen.himmelsbach.dev/cert.pem";
       sslCertificateKey = "/var/lib/acme/listen.himmelsbach.dev/key.pem";
-      locations."/" = { proxyPass = "http://127.0.0.1:8000"; };
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8000";
+        proxyWebsockets = true;
+      };
     };
   };
 
