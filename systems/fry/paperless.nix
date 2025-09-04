@@ -53,14 +53,10 @@
   services.paperless = {
     enable = true;
     passwordFile = config.age.secrets.paperless-admin-password.path;
+    domain = "https://paperless.himmelsbach.dev";
     settings = {
       PAPERLESS_DBHOST = "localhost";
-      # PAPERLESS_REDIS=<url>
-      # PAPERLESS_TIKA_ENABLED=<bool>
-      # PAPERLESS_TIKA_ENDPOINT=<url>
-      # PAPERLESS_TIKA_GOTENBERG_ENDPOINT=<url>
       PAPERLESS_OCR_LANGUAGE = "deu";
-      PAPERLESS_URL = "https://paperless.himmelsbach.dev";
     };
     environmentFile = config.age.secrets.paperless-secret-key-env.path;
   };
