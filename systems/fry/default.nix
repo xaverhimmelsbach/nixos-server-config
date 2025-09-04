@@ -25,6 +25,7 @@
     (import ./sabnzbd.nix)
     (import ./audiobookshelf.nix)
     (import ./infrastructure/postgresql.nix)
+    (import ./webdev.nix)
     agenix.nixosModules.default
   ];
 }

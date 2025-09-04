@@ -21,7 +21,7 @@
       sslCertificate = "/var/lib/acme/listen.himmelsbach.dev/cert.pem";
       sslCertificateKey = "/var/lib/acme/listen.himmelsbach.dev/key.pem";
       locations."/" = {
-        proxyPass = "http://127.0.0.1:8000";
+        proxyPass = "http://127.0.0.1:8001";
         proxyWebsockets = true;
       };
     };
@@ -29,5 +29,6 @@
 
   services.audiobookshelf = {
     enable = true;
+    port = 8001;
   };
 }
