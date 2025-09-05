@@ -17,6 +17,8 @@
     git
     helix
     zellij
+    inetutils
+    dnsutils
   ];
 
   environment.variables.EDITOR = "hx";
