@@ -1,6 +1,6 @@
 { ... }:
 {
-  networking.nameservers = [ "::1" ];
+  networking.nameservers = [ "127.0.0.1" ];
 
   # TODO: Setup subdomain
 
@@ -8,14 +8,15 @@
     enable = true;
     settings = {
       http = {
-        address = "[fc00::1]:3000";
+        address = "0.0.0.0:3000";
       };
       dns = {
         bind_hosts = [
+          "0.0.0.0"
           "::1"
           "fc00::1"
         ];
-        upstream_dns = [ "2620:fe::fe" ]; # Quad9
+        upstream_dns = [ "9.9.9.9" ]; # Quad9
       };
       filtering = {
         protection_enabled = true;
