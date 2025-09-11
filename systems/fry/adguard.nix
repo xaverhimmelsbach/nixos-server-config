@@ -1,14 +1,38 @@
-{ ... }:
+{ config, ... }:
 {
-  networking.nameservers = [ "127.0.0.1" ];
+  users.groups."acme-dns.himmelsbach.dev" = {
+    members = [
+      "acme"
+      "nginx"
+    ];
+  };
 
-  # TODO: Setup subdomain
+  security.acme = {
+    certs."dns.himmelsbach.dev" = {
+      dnsProvider = "hetzner";
+      environmentFile = config.age.secrets.hetzner-api-key.path;
+      group = "acme-dns.himmelsbach.dev";
+    };
+  };
+
+  services.nginx = {
+    virtualHosts."dns.himmelsbach.dev" = {
+      forceSSL = true;
+      sslCertificate = "/var/lib/acme/dns.himmelsbach.dev/cert.pem";
+      sslCertificateKey = "/var/lib/acme/dns.himmelsbach.dev/key.pem";
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:3000";
+      };
+    };
+  };
+
+  networking.nameservers = [ "127.0.0.1" ];
 
   services.adguardhome = {
     enable = true;
     settings = {
       http = {
-        address = "0.0.0.0:3000";
+        address = "127.0.0.1:3000";
       };
       dns = {
         bind_hosts = [

@@ -3,7 +3,7 @@ NixOS config to provision a personal server.
 
 ## Services
 - Wireguard Proxy
-- Adguard
+- Adguard (`dns.himmelsbach.dev`)
 - Kavita (`read.himmelsbach.dev`)
 - Navidrome (`music.himmelsbach.dev`)
 - Searx (`search.himmelsbach.dev`)
