@@ -7,7 +7,6 @@ NixOS config to provision a personal server.
 - Kavita (`read.himmelsbach.dev`)
 - Navidrome (`music.himmelsbach.dev`)
 - Searx (`search.himmelsbach.dev`)
-- Calibre
 - Firefly 3 (`firefly.himmelsbach.dev`)
 - FreshRSS (`freshrss.himmelsbach.dev`)
 - Paperless (`paperless.himmelsbach.dev`)
