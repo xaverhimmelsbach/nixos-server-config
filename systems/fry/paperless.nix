@@ -53,7 +53,7 @@
   services.paperless = {
     enable = true;
     passwordFile = config.age.secrets.paperless-admin-password.path;
-    domain = "https://paperless.himmelsbach.dev";
+    domain = "paperless.himmelsbach.dev";
     settings = {
       PAPERLESS_DBHOST = "localhost";
       PAPERLESS_OCR_LANGUAGE = "deu";
