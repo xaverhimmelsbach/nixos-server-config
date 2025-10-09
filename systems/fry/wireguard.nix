@@ -54,6 +54,11 @@
           publicKey = "MYWcyh02sjhaxrTj9N6NlT+Kvfw2Om/8yJXVn+x1Tk4=";
           allowedIPs = [ "10.100.0.4/32" "fc00::4" ];
         }
+        {
+          # New homeserver
+          publicKey = "3Y/kjYXpW8DuZ4yjjBoPRZIFTjYhYn0V9CxzU6SBmlo=";
+          allowedIPs = [ "10.100.0.5/32" "fc00::5" ];
+        }
       ];
     };
   };
