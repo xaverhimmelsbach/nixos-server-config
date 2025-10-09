@@ -1,5 +1,5 @@
 let
-  fry = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIzZ1WaZaxRYiadXRVlnIy63bf+v2IRbbRNGPMSL6jzk";
+  fry = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA+aZWHok6UP/rlaWxz7f0Poq9lgosWjyrw0Rfm/tPV/";
 in
 {
   "hetzner-api-key.age".publicKeys = [ fry ];

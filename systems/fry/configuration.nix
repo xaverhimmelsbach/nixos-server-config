@@ -11,6 +11,17 @@
     experimental-features = nix-command flakes
   '';
 
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi = {
+        efiSysMountPoint = "/boot";
+        canTouchEfiVariables = true;
+      };
+    };
+    supportedFilesystems = [ "ntfs" ];
+  };
+
   environment.systemPackages = with pkgs; [
     vim
     curl
@@ -33,7 +44,7 @@
 
   services.openssh = {
     enable = true;
-    openFirewall = false;
+    openFirewall = true;
   };
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOU6AXkMMuvqnuF+5hEqYRHvbAebES8XUo2eVfxRjcD xaver@standin" # id_hetzner
